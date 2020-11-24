@@ -1,0 +1,35 @@
+{
+  "name": "wing-cli",
+  "version": "0.0.1",
+  "description": "a cli tool for quickly writing plug-in module",
+  "main": "bin/wing.js",
+  "bin": {
+    "wing": "bin/wing.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wayley/wing-cli.git"
+  },
+  "keywords": [
+    "cli",
+    "module",
+    "tool"
+  ],
+  "author": {
+    "name": "Robben Wayley",
+    "email": "hb_wangzheng@163.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Wayley/wing-cli/issues"
+  },
+  "homepage": "https://github.com/Wayley/wing-cli#readme",
+  "dependencies": {
+    "commander": "^6.2.0",
+    "inquirer": "^7.3.3",
+    "shelljs": "^0.8.4"
+  }
+}
