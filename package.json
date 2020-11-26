@@ -28,8 +28,15 @@
   },
   "homepage": "https://github.com/Wayley/wing-cli#readme",
   "dependencies": {
+    "chalk": "^4.1.0",
     "commander": "^6.2.0",
+    "fs-extra": "^9.0.1",
     "inquirer": "^7.3.3",
-    "shelljs": "^0.8.4"
+    "semver": "^7.3.2",
+    "shelljs": "^0.8.4",
+    "validate-npm-package-name": "^3.0.0"
+  },
+  "engines": {
+    "node": "^10.12.0 || ^12.0.0 || >= 14.0.0"
   }
 }
