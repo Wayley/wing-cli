@@ -33,5 +33,8 @@ program.command('create <app-name>').action((appName) => {
 program.command('init <app-name>').action((appName) => {
   console.log(chalk.yellow(`TODO: initAction in ${appName}`));
 });
-
+// plugin Command
+program.command('plugin <plugin-name>').action((pluginName) => {
+  console.log(chalk.yellow(`TODO: pluginAction in ${pluginName}`));
+});
 program.parse(process.argv);
