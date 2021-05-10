@@ -2,6 +2,7 @@
   "name": "wing-cli",
   "version": "0.0.1",
   "description": "a cli tool for quickly writing plug-in module",
+  "copyright": "Wayley",
   "main": "bin/wing.js",
   "bin": {
     "wing": "bin/wing.js"
