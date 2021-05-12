@@ -6,10 +6,11 @@
 const { satisfies } = require('semver');
 const chalk = require('chalk');
 const { engines, name, version } = require('@config');
+const log = console.log;
 
 function checkNodeVersion(expectedVersion, pakName) {
   if (!satisfies(process.version, expectedVersion)) {
-    console.log(
+    log(
       chalk.red(
         `You are using Node ${process.version}, but this version of ${pakName} requires Node ${expectedVersion}'.\n\nPlease upgrade your Node version.`
       )
@@ -32,21 +33,22 @@ program.command('create <app-name>').action((appName) => {
 
 // init Command
 program.command('init <app-name>').action((appName) => {
-  console.log(
-    chalk.blue('init '),
+  log(' ');
+  log(
+    chalk.magenta(' init'),
     chalk.yellow(`command in ${appName} is in development..., and you can try`),
-    chalk.green(' create '),
+    chalk.green('create'),
     chalk.yellow('command')
   );
 });
 // plugin Command
 program.command('plugin <plugin-name>').action((pluginName) => {
-  console.log(
-    chalk.blue('plugin '),
+  log(
+    chalk.magenta(' plugin'),
     chalk.yellow(
       `command in ${pluginName} is in development..., and you can try`
     ),
-    chalk.green(' create '),
+    chalk.green('create'),
     chalk.yellow('command')
   );
 });
