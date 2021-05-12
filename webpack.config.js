@@ -2,7 +2,14 @@ const path = require('path');
 const webpack = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
 const ShebangPlugin = require('webpack-shebang-plugin');
-const { name, version, copyright, license, author } = require('./package.json');
+const {
+  name,
+  version,
+  copyright,
+  license,
+  author,
+  dependencies,
+} = require('./package.json');
 const AUTHOR = author.name || author;
 const banner =
   '/*!\n' +
@@ -51,16 +58,14 @@ module.exports = (env, argv) => {
       ],
     },
   };
-  if (EXCLUDE_EXTERNALS) {
-    config['externals'] = {
-      chalk: 'commonjs2 chalk',
-      commander: 'commonjs2 commander',
-      'fs-extra': 'commonjs2 fs-extra',
-      inquirer: 'commonjs2 inquirer',
-      semver: 'commonjs2 semver',
-      shelljs: 'commonjs2 shelljs',
-      'validate-npm-package-name': 'commonjs2 validate-npm-package-name',
-    };
+  if (EXCLUDE_EXTERNALS && dependencies) {
+    let externals = {};
+    for (const key in dependencies) {
+      if (Object.hasOwnProperty.call(dependencies, key)) {
+        externals[key] = `commonjs2 ${key}`;
+      }
+    }
+    config['externals'] = externals;
   }
   return config;
 };
