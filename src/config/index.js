@@ -5,5 +5,5 @@ module.exports = {
   engines, // CLI Expected Node Engines
   name, // CLI Name
   version, // CLI Version
-  copyright: `Copyright © ${copyright} 20172-${new Date().getFullYear()}`, // CLI Copyright
+  copyright: `Copyright © ${copyright} 2017-${new Date().getFullYear()}`, // CLI Copyright
 };
