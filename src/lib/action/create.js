@@ -6,6 +6,7 @@ const inquirer = require('inquirer');
 const { exec } = require('shelljs');
 
 const { writeFiles } = require('@lib/util');
+const log = console.log;
 
 async function createAction(appName) {
   const result = validateNpmPackageName(appName);
@@ -40,7 +41,7 @@ async function createAction(appName) {
       },
     ]);
     if (action === 'overwrite') {
-      console.log(`\nRemoving ${chalk.cyan(targetDir)} ...`);
+      log(`\nRemoving ${chalk.cyan(targetDir)} ...`);
       await fs.remove(targetDir);
     } else {
       return;
@@ -85,11 +86,11 @@ Creator.prototype.create = async function () {
     name: appName,
     framework,
   };
-  console.log(pkg);
+  log(pkg);
   await writeFiles(targetDir, {
     'package.json': JSON.stringify(pkg, null, 2),
   });
-  console.log('Success!');
+  log('Success!');
 };
 module.exports = (...args) => {
   return createAction(...args).catch((error) => {
