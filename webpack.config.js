@@ -1,26 +1,29 @@
 const path = require('path');
-
+const TerserPlugin = require('terser-webpack-plugin');
+const ShebangPlugin = require('webpack-shebang-plugin');
 module.exports = {
   mode: 'production', // development production
-  target: 'node',
-  node: {
-    __dirname: false,
+  entry: {
+    index: './bin/wing.js',
   },
-  module: {
-    rules: [
-      {
-        test: /\.node$/,
-        loader: 'node-loader',
-      },
-      {
-        test: /\.js$/,
-        loader: 'node-loader',
-      },
-    ],
-  },
-  entry: '/bin/wing.js',
   output: {
-    filename: '[name].[contenthash].bundle.js',
+    filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    clean: true,
+  },
+  plugins: [new ShebangPlugin()],
+  target: 'node',
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new TerserPlugin({
+        terserOptions: {
+          format: {
+            comments: false,
+          },
+        },
+        extractComments: false,
+      }),
+    ],
   },
 };
