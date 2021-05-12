@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "a cli tool for quickly writing plug-in module",
   "copyright": "Wayley",
+  "private": "true",
   "main": "bin/wing.js",
   "bin": {
     "wing": "dist/wing.js"
