@@ -4,10 +4,10 @@ const ShebangPlugin = require('webpack-shebang-plugin');
 module.exports = {
   mode: 'production', // development production
   entry: {
-    index: './src/bin/index.js',
+    wing: './src/bin/index.js',
   },
   output: {
-    filename: 'wing.min.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
   },
