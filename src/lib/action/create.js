@@ -54,7 +54,6 @@ function Creator(appName, targetDir) {
   this.targetDir = targetDir;
 }
 Creator.prototype.create = async function () {
-  console.log(1111)
   // framework pick
   const { framework } = await inquirer.prompt([
     {
@@ -85,7 +84,6 @@ Creator.prototype.create = async function () {
   const pkg = {
     name: appName,
     framework,
-    author:'wz'
   };
   console.log(pkg);
   await writeFiles(targetDir, {
