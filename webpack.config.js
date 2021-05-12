@@ -7,7 +7,7 @@ module.exports = {
     index: './src/bin/index.js',
   },
   output: {
-    filename: '[name].min.js',
+    filename: 'wing.min.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
   },
