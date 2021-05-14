@@ -95,6 +95,7 @@ Creator.prototype.create = async function () {
 module.exports = (...args) => {
   return createAction(...args).catch((error) => {
     if (error) {
+      console.error(chalk.red(`Some error occurred: "${error}"`));
       process.exit(1);
     }
   });
