@@ -26,30 +26,27 @@ const createAction = require('@lib/action/create');
 
 program.version(version).usage('<command> [options]');
 
-// Create Command
+// `create` Command
 program.command('create <app-name>').action((appName) => {
   createAction(appName);
 });
 
-// init Command
+// `init` Command
 program.command('init <app-name>').action((appName) => {
+  logDevInfo('init', appName);
+});
+// `plugin` Command
+program.command('plugin <plugin-name>').action((pluginName) => {
+  logDevInfo('plugin', pluginName);
+});
+
+function logDevInfo(command, name) {
   log(' ');
   log(
-    chalk.magenta(' init'),
-    chalk.yellow(`command in ${appName} is in development..., and you can try`),
+    chalk.magenta(` ${command}`),
+    chalk.yellow(`command in ${name} is in development..., and you can try`),
     chalk.green('create'),
     chalk.yellow('command')
   );
-});
-// plugin Command
-program.command('plugin <plugin-name>').action((pluginName) => {
-  log(
-    chalk.magenta(' plugin'),
-    chalk.yellow(
-      `command in ${pluginName} is in development..., and you can try`
-    ),
-    chalk.green('create'),
-    chalk.yellow('command')
-  );
-});
+}
 program.parse(process.argv);

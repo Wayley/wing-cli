@@ -23,7 +23,7 @@ async function createAction(appName) {
       result.warnings.forEach((warning) => {
         console.error(chalk.red.dim('Warning: ' + warning));
       });
-    exit(1);
+    process.exit(1);
   }
   // 检测是否存在同名文件夹
   if (fs.existsSync(targetDir)) {
