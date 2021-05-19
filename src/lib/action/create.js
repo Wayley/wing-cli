@@ -86,7 +86,6 @@ Creator.prototype.create = async function () {
     name: appName,
     framework,
   };
-  log(pkg);
   await writeFiles(targetDir, {
     'package.json': JSON.stringify(pkg, null, 2),
   });
