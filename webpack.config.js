@@ -31,11 +31,7 @@ module.exports = (env, argv) => {
       clean: true,
     },
     resolve: {
-      alias: {
-        '@@': path.resolve(__dirname, ''),
-        '@config': path.resolve(__dirname, 'src/config'),
-        '@lib': path.resolve(__dirname, 'src/lib'),
-      },
+      alias: {},
     },
     plugins: [
       new ShebangPlugin(),
