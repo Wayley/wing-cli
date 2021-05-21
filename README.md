@@ -1,4 +1,4 @@
-# wing-cli
+# wingjs-cli
 
 > This is a cli tool for quickly writing plug-in module, a package or an application.
 
@@ -6,9 +6,9 @@
 
 ```bash
 
-$ npm install -g wing-cli
+$ npm install -g wingjs-cli
 # OR
-$ yarn global add wing-cli
+$ yarn global add wingjs-cli
 ```
 
 ## Usage

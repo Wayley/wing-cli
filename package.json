@@ -1,6 +1,6 @@
 {
-  "name": "@wing/cli",
-  "version": "0.0.1",
+  "name": "wingjs-cli",
+  "version": "0.0.11",
   "description": "This is a cli tool for quickly starting a plug-in module, a package or an application",
   "copyright": "Robben Wadlay©",
   "main": "dist/wing.js",
