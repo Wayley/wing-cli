@@ -1,9 +1,6 @@
-const { engines, name, version, copyright } = require('@@/package.json');
-
-// Configs of CLI
+const name = require('../../package.json').name;
+const version = require('../../package.json').version;
+const copyright = require('../../package.json').copyright;
 module.exports = {
-  engines, // CLI Expected Node Engines
-  name, // CLI Name
-  version, // CLI Version
-  copyright: `Copyright © ${copyright} 2017-${new Date().getFullYear()}`, // CLI Copyright
+  copyright: `${name} V${version} Copyright © ${copyright} 2017-${new Date().getFullYear()}`, // CLI Copyright
 };

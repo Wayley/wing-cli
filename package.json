@@ -1,21 +1,16 @@
 {
   "name": "wing-cli",
   "version": "0.0.1",
-  "description": "a cli tool for quickly writing plug-in module",
-  "copyright": "Wayley",
-  "private": "true",
-  "main": "bin/wing.js",
+  "description": "This is a cli tool for quickly starting a plug-in module, a package or an application",
+  "copyright": "Robben Wadlay©",
+  "main": "dist/wing.js",
   "bin": {
-    "wing": "dist/wing.js"
+    "wing": "dist/wing.js",
+    "wing-test": "src/bin/index.js"
   },
   "files": [
     "dist/*.js"
   ],
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
-    "build:exclude_external": "webpack --env EXCLUDE_EXTERNALS"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Wayley/wing-cli.git"
@@ -26,7 +21,7 @@
     "tool"
   ],
   "author": {
-    "name": "Robben Wayley",
+    "name": "Robben Wadlay",
     "email": "hb_wangzheng@163.com"
   },
   "license": "MIT",
@@ -36,6 +31,11 @@
   "homepage": "https://github.com/Wayley/wing-cli#readme",
   "engines": {
     "node": "^10.12.0 || ^12.0.0 || >= 14.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "build:exclude_external": "webpack --env EXCLUDE_EXTERNALS"
   },
   "dependencies": {
     "chalk": "^4.1.0",
