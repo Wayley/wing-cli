@@ -24,26 +24,48 @@ checkNodeVersion(engines.node, name);
 const program = require('commander');
 const version = require('../../package.json').version;
 
-const {
-  createAction,
-  initAction,
-  pluginAction,
-} = require('../lib/action/index.js');
 program.version(version).usage('<command> [options]');
+program
+  .option('-D, --debug', 'output extra debugging')
+  .option('-p, --port <port>', 'locale running port', 3000)
+  .option('-n, --app-name <appname>', 'application name', 'wing-app-demo')
+  .option(
+    '-f, --framework <framework>',
+    'application framework(Vue/React/PureHtml...)',
+    'react'
+  )
+  .option('--no-typescript', 'typescript using');
+
+// `create cli` Command
+program
+  .command('create-cli <cli-name>')
+  .description('create a cli tool')
+  .action(() => {
+    console.log('Command: create-cli', program.opts());
+  });
 
 // `create` Command
-program.command('create <app-name>').action((appName) => {
-  createAction(appName);
-});
+program
+  .command('create')
+  .description('generate an application')
+  .action(() => {
+    console.log('Command: create');
+  });
 
 // `init` Command
-program.command('init <app-name>').action((appName) => {
-  initAction(appName);
-});
+program
+  .command('init')
+  .description('generate an application with defaults')
+  .action(() => {
+    console.log('Command: init');
+  });
 
 // `plugin` Command
-program.command('plugin <plugin-name>').action((pluginName) => {
-  pluginAction(pluginName);
-});
+program
+  .command('plugin <plugin-name>')
+  .description('generate a plugin')
+  .action(() => {
+    console.log('Command: plugin');
+  });
 
 program.parse(process.argv);
