@@ -6,7 +6,8 @@
 // The user may be on a very old node version
 const { satisfies } = require('semver');
 const chalk = require('chalk');
-const { name, version, engines } = require('../config');
+const name = require('../../package.json').name;
+const engines = require('../../package.json').engines;
 function checkNodeVersion(expectedVersion, packageName) {
   if (!satisfies(process.version, expectedVersion)) {
     console.log(
@@ -21,6 +22,8 @@ checkNodeVersion(engines.node, name);
 
 // Add Commands
 const program = require('commander');
+const version = require('../../package.json').version;
+
 const {
   createAction,
   initAction,
