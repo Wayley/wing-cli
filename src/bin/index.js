@@ -19,6 +19,8 @@ function checkNodeVersion(expectedVersion, packageName) {
   }
 }
 checkNodeVersion(engines.node, name);
+// default configs
+const { appName, framework } = { framework: 'react', appName: 'wing-app-demo' };
 
 // Add Commands
 const program = require('commander');
@@ -28,11 +30,11 @@ program.version(version).usage('<command> [options]');
 program
   .option('-D, --debug', 'output extra debugging')
   .option('-p, --port <port>', 'locale running port', 3000)
-  .option('-n, --app-name <appname>', 'application name', 'wing-app-demo')
+  .option('-n, --app-name <appname>', 'application name', appName)
   .option(
     '-f, --framework <framework>',
     'application framework(Vue/React/PureHtml...)',
-    'react'
+    framework
   )
   .option('--no-typescript', 'typescript using');
 
@@ -46,18 +48,18 @@ program
 
 // `create` Command
 program
-  .command('create')
+  .command('create [app-name]')
   .description('generate an application')
-  .action(() => {
-    console.log('Command: create');
+  .action((appName) => {
+    console.log('Command: create', appName, program.opts());
   });
 
 // `init` Command
 program
-  .command('init')
+  .command('init [app-name]')
   .description('generate an application with defaults')
-  .action(() => {
-    console.log('Command: init');
+  .action((appName) => {
+    console.log('Command: init', appName);
   });
 
 // `plugin` Command
