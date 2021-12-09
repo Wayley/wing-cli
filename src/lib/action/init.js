@@ -1,3 +1,3 @@
-module.exports = (name) => {
-  console.log(`You made ${name} with 'init' command`);
+module.exports = (...args) => {
+  console.log(`init:`, args);
 };
