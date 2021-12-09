@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div>
     <HelloWorld msg="Loading..." />
   </div>
 </template>
