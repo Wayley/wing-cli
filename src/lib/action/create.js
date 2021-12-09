@@ -2,8 +2,6 @@ const path = require('path');
 const fs = require('fs-extra');
 const chalk = require('chalk');
 const validateNpmPackageName = require('validate-npm-package-name');
-const inquirer = require('inquirer');
-const { exec } = require('shelljs');
 
 const Creator = require('../Creator');
 
