@@ -28,15 +28,16 @@ const version = require('../../package.json').version;
 
 program.version(version).usage('<command> [options]');
 program
-  .option('-D, --debug', 'output extra debugging', false)
-  .option('-p, --port <port>', 'locale running port', 3000)
-  .option('-n, --app-name <app-name>', 'application or package name', appName)
+  .option('-d, --debug', 'output extra debugging', false)
+  .option('-desc, --desc [description]', 'application description', '') // `application` field causes a naming conflict, so use `desc` field.
   .option(
     '-f, --framework <framework>',
     'application framework(Vue/React/PureHtml...)',
     framework
   )
-  .option('-desc, --desc [description]', 'application description', '') // `application` field causes a naming conflict, so use `desc` field.
+  .option('-n, --app-name <app-name>', 'application or package name', appName)
+  .option('-o, --overwrite', 'whether to overwrite an existing folder', false)
+  .option('-p, --port <port>', 'locale running port', 3000)
   .option('--no-typescript', 'typescript using');
 
 // `create cli` Command
