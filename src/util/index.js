@@ -9,7 +9,7 @@ const validateNpmPackageName = require('validate-npm-package-name');
  * @param {Object} files 文件信息
  */
 exports.writeFiles = async function (targetDir, files) {
-  Object.keys(files).forEach((fileName) => {
+  Object.keys(files).forEach(async (fileName) => {
     try {
       const filePath = path.join(targetDir, fileName);
       fs.ensureDirSync(path.dirname(filePath));
@@ -46,17 +46,18 @@ exports.checkPackageName = function (name) {
  * @param {Boolean} overwrite
  * @returns {Boolean}
  */
-exports.checkPathExists = async function (targetDir, overwrite) {
+exports.checkPathExists = function (targetDir, overwrite) {
   try {
     const exists = fs.existsSync(targetDir);
     if (exists) {
       console.warn(`Target directory ${chalk.cyan(targetDir)} already exists.`);
       if (overwrite) {
         console.log(`\nRemoving ${chalk.cyan(targetDir)} ...`);
-        await fs.remove(targetDir);
+        fs.removeSync(targetDir);
+      } else {
+        return;
       }
     }
-    return exists;
   } catch (error) {
     throw error;
   }
