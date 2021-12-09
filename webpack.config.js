@@ -17,7 +17,7 @@ module.exports = (env, argv) => {
     mode: 'production', // development production
     target: 'node',
     entry: {
-      wing: './src/bin/index.js',
+      wing: './src/bin/wing.js',
     },
     output: {
       filename: '[name].js',
