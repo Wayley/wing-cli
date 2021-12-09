@@ -4,7 +4,7 @@
   "description": "This is a cli tool for quickly starting a plug-in module, a package or an application",
   "main": "dist/wing.js",
   "bin": {
-    "wing": "dist/wing.js"
+    "wing": "src/bin/wing.js"
   },
   "files": [
     "dist/*.js"
